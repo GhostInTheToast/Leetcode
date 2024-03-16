@@ -1,19 +1,19 @@
 public class ValidAnagram {
-
     public boolean isAnagram(String s, String t) {
         if (s.length() != t.length())
             return false;
+        
+        char[] charArray = new char[26];
 
-        int[] arr = new int[26];
         for (int i = 0; i < s.length(); i++) {
-            arr[s.charAt(i)-'a']++;
-            arr[t.charAt(i)-'a']--;
+            charArray[s.charAt(i) - 'a']++;
+            charArray[t.charAt(i) - 'a']--;
         }
-        for (int i = 0; i < 26; i++) {
-            if (arr[i] != 0)
+
+        for (int count : charArray) {
+            if (count != 0) 
                 return false;
         }
         return true;
     }
-
 }

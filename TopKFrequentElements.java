@@ -1,7 +1,7 @@
 public class TopKFrequentElements {
     public int[] topKFrequent(int[] nums, int k) {
-        Map<Integer, Integer> hm = new HashMap<>();
-        List<Integer>[] b = new List[nums.length+1];
+        Map<Integer, Integer> hm = new HashMap<>(); // hm for hashmap
+        List<Integer>[] b = new List[nums.length+1]; // b for bucket!
 
         for (int num : nums) {
             hm.put(num, hm.getOrDefault(num, 0) + 1);

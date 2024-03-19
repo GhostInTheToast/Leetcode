@@ -1,35 +1,28 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class TopKFrequentElements {
     public int[] topKFrequent(int[] nums, int k) {
-        Map<Integer, Integer> freqMap = new HashMap<Integer, Integer>();
-        List<Integer>[] bucket = new List[nums.length + 1];
+        Map<Integer, Integer> hm = new HashMap<>();
+        List<Integer>[] b = new List[nums.length+1];
 
-        for (int i : nums) {
-            freqMap.put(i, freqMap.getOrDefault(i, 0) + 1);
+        for (int num : nums) {
+            hm.put(num, hm.getOrDefault(num, 0) + 1);
         }
 
-        for (int key : freqMap.keySet()) {
-            int freq = freqMap.get(key);
-            if (bucket[freq] == null) {
-                bucket[freq] = new ArrayList<Integer>();
-            }
-            bucket[freq].add(key);
+        for (int key : hm.keySet()) {
+            if (b[hm.get(key)] == null)
+                b[hm.get(key)] = new ArrayList<Integer>();
+            b[hm.get(key)].add(key);
         }
 
-        int[] res = new int[k];
+        int[] ans = new int[k];
         int counter = 0;
-        for (int i = bucket.length - 1; i >= 0 && counter < k; i--) {
-            if (bucket[i] != null) {
-                for (Integer integer : bucket[i]) {
-                    res[counter] = integer;
-                    counter++;
+
+        for (int pos = b.length - 1; pos >= 0 && counter < k; pos--) {
+            if (b[pos] != null) {
+                for (int num : b[pos]) {
+                    ans[counter++] = num;
                 }
             }
         }
-        return res;
+        return ans;
     }
 }

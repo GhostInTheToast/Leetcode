@@ -13,6 +13,7 @@ class FibonacciNumber_Memoization {
         else
             result = fib(n-1) + fib(n-2);
 
+        hm.put(n, result);
         return result;
     }
 }

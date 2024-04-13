@@ -6,3 +6,4 @@ class ContainsDuplicate:
                 return True
             hset.add(num)
         return False
+

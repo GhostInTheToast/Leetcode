@@ -21,3 +21,6 @@ class ProductExceptSelf {
         return nums;
     }
 }
+
+//very messy etc btw, like how im doing lines 6, 7, 19 and 20. also im sure that once 
+ //   i fix to handle those lines automatically in a loop, then the first 2 forloops can be combined into 1 kinda in a way
